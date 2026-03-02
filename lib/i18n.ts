@@ -8,14 +8,13 @@ export const translations = {
     nav_prices: 'ราคา',
     nav_about: 'เกี่ยวกับเรา',
     nav_contact: 'ติดต่อ',
-    nav_book: '📞 จองนวด',
 
     // Hero
     hero_tag: 'นวดแผนไทยดั้งเดิม',
     hero_title: 'สัมผัสการบำบัด\nด้วยมือของเรา',
-    hero_desc: 'สัมผัสประสบการณ์นวดแผนไทยแท้ๆ ใจกลางเมือง Bremerhaven นักนวดของเราถ่ายทอดเทคนิคดั้งเดิมจากประเทศไทยเพื่อฟื้นฟูร่างกายและจิตใจของคุณ',
+    hero_desc: 'สัมผัสประสบการณ์นวดแผนไทยแท้ๆ ที่ Loxstedt – Donnern นักนวดของเราถ่ายทอดเทคนิคดั้งเดิมจากประเทศไทยเพื่อฟื้นฟูร่างกายและจิตใจของคุณ',
     hero_prices: 'ดูราคา',
-    hero_book: 'จองคิว',
+    hero_contact: 'ติดต่อเรา',
 
     // Services section
     services_tag: 'สิ่งที่เราให้บริการ',
@@ -25,39 +24,38 @@ export const translations = {
     // Stats
     stats_tag: 'ทำไมต้องเลือกเรา',
     stats_title: 'คำสัญญาของเรา',
-    stat_years: 'ปีประสบการณ์',
-    stat_therapists: 'นักนวดรับรองจากไทย',
-    stat_rating: 'คะแนนลูกค้า',
-    stat_clients: 'ลูกค้าพึงพอใจ',
 
     // CTA
     cta_title: 'พร้อมผ่อนคลายแล้วหรือยัง?',
-    cta_desc: 'ติดต่อเราวันนี้เพื่อจองคิว รับ Walk-in ทุกวัน',
-    cta_btn: 'จองเลย',
+    cta_desc: 'ติดต่อเราวันนี้เพื่อนัดหมาย โทร 0 15156049351 หรือ 0 15168515530',
+    cta_btn: 'ติดต่อเรา',
 
     // Services page
     services_page_tag: 'บริการของเรา',
-    services_page_title: 'การรักษาและบริการ',
-    services_page_book: 'จองบริการนี้',
+    services_page_title: 'บริการนวดทั้งหมด',
     services_page_durations: 'ระยะเวลาและราคา',
     min: 'นาที',
 
     // Prices page
     prices_tag: 'ราคา',
     prices_title: 'รายการราคา',
-    prices_note: 'สามารถรวมบริการได้ ยินดีรับนัดหมายล่วงหน้า — รับ Walk-in',
+    prices_note: 'เปิด จันทร์ – เสาร์ 09:00 – 18:00 น. | โทร 0 15156049351, 0 15168515530',
 
     // About page
     about_tag: 'เกี่ยวกับเรา',
     about_title: 'เรื่องราวของเรา',
     about_h2: 'การบำบัดแบบไทยแท้',
-    about_p1: 'เราเป็นสตูดิโอนวดแผนไทยที่ดำเนินการโดยครอบครัว ตั้งอยู่ใน Bremerhaven ประเทศเยอรมนี นักนวดที่ผ่านการรับรองจากประเทศไทยของเรามอบเทคนิคการบำบัดที่ได้รับการพิสูจน์แล้วกว่า 2,500 ปี',
-    about_p2: 'เราเชื่อว่าทุกร่างกายสมควรได้รับการดูแลด้วยความใส่ใจ ทักษะ และความเคารพ ไม่ว่าคุณต้องการบรรเทาความเครียด อาการปวดกล้ามเนื้อ หรือแค่ต้องการพักผ่อน — เรายินดีต้อนรับ',
-    about_p3: 'สตูดิโอของเราเป็นพื้นที่สงบและอบอุ่น ออกแบบมาเพื่อให้คุณผ่อนคลายได้อย่างเต็มที่ตั้งแต่ก้าวแรกที่เดินเข้ามา',
+    about_p1: 'Nathanya Waree เป็นร้านนวดแผนไทยตั้งอยู่ที่ Sellstedter Str. 5, 27612 Loxstedt – Donnern ประเทศเยอรมนี นักนวดของเราผ่านการฝึกฝนจากประเทศไทยโดยตรง',
+    about_p2: 'เราเชื่อว่าทุกร่างกายสมควรได้รับการดูแลด้วยความใส่ใจ ทักษะ และความเคารพ ไม่ว่าคุณต้องการบรรเทาความเครียด อาการปวดกล้ามเนื้อ หรือแค่ต้องการพักผ่อน',
+    about_p3: 'ร้านของเราเป็นพื้นที่สงบและอบอุ่น ออกแบบมาเพื่อให้คุณผ่อนคลายได้ตั้งแต่ก้าวแรกที่เดินเข้ามา เรามีบัตรกำนัล (Geschenkgutscheine) สำหรับโอกาสพิเศษต่างๆ',
+
+    // Gift voucher
+    gift_title: 'บัตรกำนัล',
+    gift_desc: 'กำลังมองหาของขวัญพิเศษ? สอบถามบัตรกำนัลนวดไทยของเราได้เลย — มอบความผ่อนคลายให้คนที่คุณรัก',
 
     // Contact page
     contact_tag: 'ติดต่อ',
-    contact_title: 'จองนัดหมาย',
+    contact_title: 'ติดต่อเรา',
     contact_visit: 'เยี่ยมชมเรา',
     contact_hours: 'เวลาทำการ',
     contact_form_name: 'ชื่อของคุณ',
@@ -71,12 +69,12 @@ export const translations = {
     // Footer
     footer_hours: 'เวลาทำการ',
     footer_links: 'ลิงก์',
-    footer_copy: '© {year} Thai Massage. สงวนสิทธิ์ทุกประการ',
+    footer_copy: '© {year} Nathanya Waree Thai Massage',
 
     // Days
-    mon_fri: 'จันทร์ – ศุกร์: 10:00 – 20:00',
-    sat: 'เสาร์: 10:00 – 18:00',
-    sun: 'อาทิตย์: ปิด',
+    mon_fri: 'จันทร์ – เสาร์: 09:00 – 18:00',
+    sat: 'อาทิตย์: ปิด / นัดหมายล่วงหน้า',
+    sun: '',
   },
   de: {
     // Navbar
@@ -85,14 +83,13 @@ export const translations = {
     nav_prices: 'Preise',
     nav_about: 'Über uns',
     nav_contact: 'Kontakt',
-    nav_book: '📞 Jetzt buchen',
 
     // Hero
     hero_tag: 'Traditionelle Thaimassage',
     hero_title: 'Spüren Sie die heilende\nKraft der Berührung',
-    hero_desc: 'Erleben Sie authentische Thaimassage im Herzen von Bremerhaven. Unsere Therapeuten bringen traditionelle Techniken direkt aus Thailand, um Körper und Geist zu erneuern.',
+    hero_desc: 'Erleben Sie authentische Thaimassage in Loxstedt – Donnern. Unsere Therapeuten bringen traditionelle Techniken direkt aus Thailand, um Körper und Geist zu erneuern.',
     hero_prices: 'Preise ansehen',
-    hero_book: 'Termin buchen',
+    hero_contact: 'Kontakt',
 
     // Services section
     services_tag: 'Was wir anbieten',
@@ -102,39 +99,38 @@ export const translations = {
     // Stats
     stats_tag: 'Warum uns wählen',
     stats_title: 'Unser Versprechen',
-    stat_years: 'Jahre Erfahrung',
-    stat_therapists: 'Zertifizierte Thai-Therapeuten',
-    stat_rating: 'Kundenbewertung',
-    stat_clients: 'Zufriedene Kunden',
 
     // CTA
     cta_title: 'Bereit zum Entspannen?',
-    cta_desc: 'Kontaktieren Sie uns noch heute für einen Termin. Walk-ins willkommen.',
-    cta_btn: 'Jetzt buchen',
+    cta_desc: 'Kontaktieren Sie uns für einen Termin. Tel: 0 15156049351 oder 0 15168515530',
+    cta_btn: 'Kontakt',
 
     // Services page
     services_page_tag: 'Unsere Leistungen',
-    services_page_title: 'Behandlungen & Leistungen',
-    services_page_book: 'Diese Behandlung buchen',
+    services_page_title: 'Behandlungen & Preise',
     services_page_durations: 'Dauer & Preise',
     min: 'Min.',
 
     // Prices page
     prices_tag: 'Preise',
     prices_title: 'Preisliste',
-    prices_note: 'Alle Behandlungen kombinierbar. Termine bevorzugt — Walk-ins willkommen.',
+    prices_note: 'Montag – Samstag 09:00 – 18:00 Uhr | Sonntag geschlossen und nach Vereinbarung | Tel: 0 15156049351, 0 15168515530',
 
     // About page
     about_tag: 'Über uns',
     about_title: 'Unsere Geschichte',
     about_h2: 'Authentische Thai-Heilkunst',
-    about_p1: 'Wir sind ein familiengeführtes Thaimassage-Studio in Bremerhaven. Unsere zertifizierten Therapeuten bringen Ihnen jahrtausendealte Heilmethoden aus Thailand.',
+    about_p1: 'Nathanya Waree ist ein Thaimassage-Studio in der Sellstedter Str. 5, 27612 Loxstedt – Donnern. Unsere zertifizierten Therapeuten bringen Ihnen jahrtausendealte Heilmethoden aus Thailand.',
     about_p2: 'Wir glauben, dass jeder Körper mit Sorgfalt, Können und Respekt behandelt werden sollte – ob bei Stress, Muskelverspannungen oder einfach zur Erholung.',
-    about_p3: 'Unser Studio ist ein ruhiger, einladender Ort, der Ihnen von der ersten Minute an echte Entspannung ermöglicht.',
+    about_p3: 'Unser Studio ist ein ruhiger, einladender Ort. Fragen Sie nach unseren Geschenkgutscheinen — schenken Sie Wohlbefinden und Entspannung in Form einer Thai-Massage.',
+
+    // Gift voucher
+    gift_title: 'Geschenkgutscheine',
+    gift_desc: 'Fehlt Ihnen noch ein Geschenk zu einem besonderen Anlass? Fragen Sie nach unseren Geschenkgutscheinen und schenken Sie Wohlbefinden und Entspannung.',
 
     // Contact page
     contact_tag: 'Kontakt',
-    contact_title: 'Termin vereinbaren',
+    contact_title: 'Kontaktieren Sie uns',
     contact_visit: 'Besuchen Sie uns',
     contact_hours: 'Öffnungszeiten',
     contact_form_name: 'Ihr Name',
@@ -148,12 +144,12 @@ export const translations = {
     // Footer
     footer_hours: 'Öffnungszeiten',
     footer_links: 'Links',
-    footer_copy: '© {year} Thai Massage. Alle Rechte vorbehalten.',
+    footer_copy: '© {year} Nathanya Waree Thai Massage',
 
     // Days
-    mon_fri: 'Mo – Fr: 10:00 – 20:00',
-    sat: 'Sa: 10:00 – 18:00',
-    sun: 'So: Geschlossen',
+    mon_fri: 'Mo – Sa: 09:00 – 18:00',
+    sat: 'So: Geschlossen / nach Vereinbarung',
+    sun: '',
   },
   en: {
     // Navbar
@@ -162,14 +158,13 @@ export const translations = {
     nav_prices: 'Prices',
     nav_about: 'About',
     nav_contact: 'Contact',
-    nav_book: '📞 Book Now',
 
     // Hero
     hero_tag: 'Traditional Thai Massage',
     hero_title: 'Feel the Healing\nPower of Touch',
-    hero_desc: 'Experience authentic Thai massage in the heart of Bremerhaven. Our therapists bring traditional techniques directly from Thailand to restore your body and mind.',
+    hero_desc: 'Experience authentic Thai massage in Loxstedt – Donnern. Our therapists bring traditional techniques directly from Thailand to restore your body and mind.',
     hero_prices: 'View Prices',
-    hero_book: 'Book Appointment',
+    hero_contact: 'Contact Us',
 
     // Services section
     services_tag: 'What We Offer',
@@ -179,39 +174,38 @@ export const translations = {
     // Stats
     stats_tag: 'Why Choose Us',
     stats_title: 'Our Promise',
-    stat_years: 'Years Experience',
-    stat_therapists: 'Thai Certified Therapists',
-    stat_rating: 'Customer Rating',
-    stat_clients: 'Happy Clients',
 
     // CTA
     cta_title: 'Ready to Relax?',
-    cta_desc: 'Contact us today to book an appointment. Walk-ins welcome.',
-    cta_btn: 'Book Now',
+    cta_desc: 'Contact us today for an appointment. Call 0 15156049351 or 0 15168515530',
+    cta_btn: 'Contact Us',
 
     // Services page
     services_page_tag: 'Our Services',
-    services_page_title: 'Treatments & Services',
-    services_page_book: 'Book This Treatment',
+    services_page_title: 'Treatments & Prices',
     services_page_durations: 'Durations & Prices',
     min: 'min',
 
     // Prices page
     prices_tag: 'Prices',
     prices_title: 'Price List',
-    prices_note: 'All treatments can be combined. Appointments preferred — Walk-ins welcome.',
+    prices_note: 'Monday – Saturday 09:00 – 18:00 | Sunday closed / by appointment | Call: 0 15156049351, 0 15168515530',
 
     // About page
     about_tag: 'About Us',
     about_title: 'Our Story',
     about_h2: 'Authentic Thai Healing',
-    about_p1: 'We are a family-run Thai massage studio in Bremerhaven, Germany. Our certified therapists bring you time-honoured healing methods from Thailand.',
+    about_p1: 'Nathanya Waree is a Thai massage studio located at Sellstedter Str. 5, 27612 Loxstedt – Donnern, Germany. Our certified therapists bring you time-honoured healing methods from Thailand.',
     about_p2: 'We believe every body deserves care with attention, skill and respect – whether for stress, muscle tension or simply relaxation.',
-    about_p3: 'Our studio is a calm and welcoming space that allows you genuine relaxation from the very first moment.',
+    about_p3: 'Our studio is a calm and welcoming space. Ask about our gift vouchers — give the gift of wellness and relaxation with a Thai massage.',
+
+    // Gift voucher
+    gift_title: 'Gift Vouchers',
+    gift_desc: 'Looking for a special gift? Ask about our gift vouchers and give the gift of wellness and relaxation with a Thai massage.',
 
     // Contact page
     contact_tag: 'Contact',
-    contact_title: 'Book an Appointment',
+    contact_title: 'Contact Us',
     contact_visit: 'Visit Us',
     contact_hours: 'Opening Hours',
     contact_form_name: 'Your Name',
@@ -225,12 +219,12 @@ export const translations = {
     // Footer
     footer_hours: 'Opening Hours',
     footer_links: 'Links',
-    footer_copy: '© {year} Thai Massage. All rights reserved.',
+    footer_copy: '© {year} Nathanya Waree Thai Massage',
 
     // Days
-    mon_fri: 'Mon – Fri: 10:00 – 20:00',
-    sat: 'Sat: 10:00 – 18:00',
-    sun: 'Sun: Closed',
+    mon_fri: 'Mon – Sat: 09:00 – 18:00',
+    sat: 'Sun: Closed / by appointment',
+    sun: '',
   },
 }
 

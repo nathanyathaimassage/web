@@ -1,6 +1,10 @@
+'use client'
 import Image from 'next/image'
+import { useLang } from './LangContext'
 
 export default function Footer() {
+  const { t } = useLang()
+
   return (
     <footer className="bg-dark text-white/70 py-10 mt-16">
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
@@ -14,28 +18,28 @@ export default function Footer() {
               <p className="text-secondary text-xs tracking-widest uppercase">Thai Massage</p>
             </div>
           </div>
-          <p>Bremerhaven, Germany</p>
-          <p className="mt-1">📞 +49 421 XXX XXXX</p>
-          <p>✉️ info@thaimassage.de</p>
+          <p>📍 Sellstedter Str. 5, 27612 Loxstedt – Donnern</p>
+          <p className="mt-1">📞 0 15156049351</p>
+          <p>📞 0 15168515530</p>
         </div>
         <div>
-          <p className="font-semibold text-white mb-2">Hours</p>
-          <p>Mon – Fri: 10:00 – 20:00</p>
-          <p>Sat: 10:00 – 18:00</p>
-          <p>Sun: Closed</p>
+          <p className="font-semibold text-white mb-2">{t('footer_hours')}</p>
+          <p>{t('mon_fri')}</p>
+          <p>{t('sat')}</p>
+          <p>{t('sun')}</p>
         </div>
         <div>
-          <p className="font-semibold text-white mb-2">Links</p>
+          <p className="font-semibold text-white mb-2">{t('footer_links')}</p>
           <ul className="space-y-1">
-            <li><a href="/services" className="hover:text-white transition">Services</a></li>
-            <li><a href="/prices" className="hover:text-white transition">Prices</a></li>
-            <li><a href="/about" className="hover:text-white transition">About Us</a></li>
-            <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
+            <li><a href="/services" className="hover:text-white transition">{t('nav_services')}</a></li>
+            <li><a href="/prices" className="hover:text-white transition">{t('nav_prices')}</a></li>
+            <li><a href="/about" className="hover:text-white transition">{t('nav_about')}</a></li>
+            <li><a href="/contact" className="hover:text-white transition">{t('nav_contact')}</a></li>
           </ul>
         </div>
       </div>
       <p className="text-center text-xs text-white/40 mt-8">
-        © {new Date().getFullYear()} Thai Massage. All rights reserved.
+        © {new Date().getFullYear()} Nathanya Waree Thai Massage. All rights reserved.
       </p>
     </footer>
   )

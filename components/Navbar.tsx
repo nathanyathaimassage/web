@@ -3,9 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useLang } from './LangContext'
 import LangSwitcher from './LangSwitcher'
+import { useState } from 'react'
 
 export default function Navbar() {
   const { t } = useLang()
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
     { href: '/', label: t('nav_home') },
@@ -17,14 +19,14 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-24">
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo.png"
             alt="Nathanya Waree Thai Massage"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
             className="object-contain"
             priority
           />
@@ -43,23 +45,28 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right side: Lang switcher + CTA */}
+        {/* Right side: Lang switcher only */}
         <div className="hidden md:flex items-center gap-3">
           <LangSwitcher />
-          <a
-            href="tel:+49421XXXXXX"
-            className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition"
-          >
-            {t('nav_book')}
-          </a>
         </div>
 
         {/* Mobile: Lang + menu */}
         <div className="md:hidden flex items-center gap-2">
           <LangSwitcher />
-          <button className="text-primary text-2xl">☰</button>
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="text-primary text-2xl">☰</button>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-2">
+          {navLinks.map((l) => (
+            <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="block text-sm font-medium text-dark hover:text-primary py-2">
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   )
 }

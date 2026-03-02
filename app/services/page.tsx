@@ -1,74 +1,167 @@
+'use client'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import { useLang } from '../../components/LangContext'
 
-const services = [
-  {
-    icon: '🌿',
-    title: 'Thai Massage',
-    desc: 'Traditional Thai massage uses guided stretching and acupressure to increase flexibility, relieve muscle tension, and restore energy flow throughout the body.',
-    durations: [
-      { min: 30, price: 25 },
-      { min: 60, price: 45 },
-      { min: 90, price: 65 },
-    ],
-  },
-  {
-    icon: '💆',
-    title: 'Oil Massage',
-    desc: 'A relaxing full-body massage using warm aromatic oils that nourish the skin and calm the nervous system, releasing deep stress and fatigue.',
-    durations: [
-      { min: 30, price: 25 },
-      { min: 60, price: 45 },
-      { min: 90, price: 65 },
-    ],
-  },
-  {
-    icon: '🦶',
-    title: 'Foot Reflexology',
-    desc: 'Targeted pressure applied to reflex zones of the feet corresponding to organs and systems of the body, promoting overall health and balance.',
-    durations: [
-      { min: 30, price: 22 },
-      { min: 60, price: 38 },
-    ],
-  },
-  {
-    icon: '🌺',
-    title: 'Combination Massage',
-    desc: 'A blend of Thai and oil massage techniques customised to your needs — the best of both worlds.',
-    durations: [
-      { min: 60, price: 48 },
-      { min: 90, price: 68 },
-      { min: 120, price: 85 },
-    ],
-  },
-  {
-    icon: '🤰',
-    title: 'Pregnancy Massage',
-    desc: 'Specially adapted massage for expectant mothers to relieve back pain, swelling, and discomfort while nurturing both mother and baby.',
-    durations: [
-      { min: 60, price: 50 },
-    ],
-  },
-  {
-    icon: '🔥',
-    title: 'Hot Stone Massage',
-    desc: 'Smooth heated basalt stones combined with massage strokes to deeply relax muscles and improve circulation.',
-    durations: [
-      { min: 60, price: 55 },
-      { min: 90, price: 75 },
-    ],
-  },
-]
+const servicesData = {
+  en: [
+    {
+      icon: '🦶',
+      title: 'Thai Foot Massage',
+      desc: 'Stimulation of toes and soles based on traditional Thai medicine. Stretching and pressure point massage activate the energy system and help the body heal itself.',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 50 },
+      ],
+    },
+    {
+      icon: '💆',
+      title: 'Thai Oil Deep Massage',
+      desc: 'Pure relaxation. The use of pleasantly warm oil releases built-up tension and reduces stress.',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 55 },
+        { min: 90, price: 80 },
+        { min: 120, price: 100 },
+      ],
+    },
+    {
+      icon: '🌿',
+      title: 'Traditional Thai Massage (no oil)',
+      desc: 'Also known as "Nuad Phaen Boran" — meaning "ancient healing touch". The relevant energy lines of the body are stimulated.',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 55 },
+        { min: 90, price: 70 },
+      ],
+    },
+    {
+      icon: '🪨',
+      title: 'Hot Stone Massage',
+      desc: 'A combination of soothing massage and the deep effect of heated basalt stones, stimulating tissue function.',
+      durations: [
+        { min: 90, price: 85 },
+      ],
+    },
+    {
+      icon: '🌿',
+      title: 'Herbal Massage',
+      desc: 'A combination of aromatherapy, herbal medicine and heat treatment, creating a deeply relaxing experience.',
+      durations: [
+        { min: 90, price: 80, note: '+ herbs' },
+      ],
+    },
+  ],
+  de: [
+    {
+      icon: '🦶',
+      title: 'Thai Fuß-Massage',
+      desc: 'Ist eine Stimulation der Zehen und Sohlen nach den Lehren der Traditionellen Thailändischen Medizin. Durch Dehnungen und punktuelle Fingerdruckmassage wird dabei das Energiesystem angeregt und hilft die Selbstheilungskräfte zu aktivieren.',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 50 },
+      ],
+    },
+    {
+      icon: '💆',
+      title: 'Thai Öl-Tiefenmassage',
+      desc: 'Dient der reinen Entspannung. Durch die Verwendung des angenehm warmen Öles wird aufgebaute Spannung und Stress gemindert.',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 55 },
+        { min: 90, price: 80 },
+        { min: 120, price: 100 },
+      ],
+    },
+    {
+      icon: '🌿',
+      title: 'Traditionelle Thai-Massage ohne Öl',
+      desc: 'Auch bekannt als "Nuad Phaen Boran", was so viel bedeutet wie "uralte heilsame Berührung". Hierbei werden die relevanten Energielinien des Körpers stimuliert.',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 55 },
+        { min: 90, price: 70 },
+      ],
+    },
+    {
+      icon: '🪨',
+      title: 'Heiße-Steine-Massage',
+      desc: 'Ist eine Kombination aus wohltuender Massage und tiefgreifender Wirkung von erwärmten Basaltsteinen und wirkt anregend auf die Gewebefunktion.',
+      durations: [
+        { min: 90, price: 85 },
+      ],
+    },
+    {
+      icon: '🌿',
+      title: 'Kräuter-Massage',
+      desc: 'Ist eine Kombination von Aromatherapie, Kräuterheilkunde und Wärmebehandlung. Dies führt zu einem zufriedenen und friedlichen Entspannungszustand der ganz besonderen Art.',
+      durations: [
+        { min: 90, price: 80, note: '+ Kräuter' },
+      ],
+    },
+  ],
+  th: [
+    {
+      icon: '🦶',
+      title: 'นวดเท้าแบบไทย',
+      desc: 'กระตุ้นนิ้วเท้าและฝ่าเท้าตามหลักแพทย์แผนไทย ด้วยการยืดและนวดจุดกดช่วยกระตุ้นระบบพลังงานและเสริมสร้างการเยียวยาตัวเอง',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 50 },
+      ],
+    },
+    {
+      icon: '💆',
+      title: 'นวดน้ำมันลึก',
+      desc: 'เพื่อการผ่อนคลายอย่างแท้จริง การใช้น้ำมันอุ่นช่วยคลายความตึงเครียดสะสมในร่างกาย',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 55 },
+        { min: 90, price: 80 },
+        { min: 120, price: 100 },
+      ],
+    },
+    {
+      icon: '🌿',
+      title: 'นวดแผนไทยดั้งเดิม (ไม่ใช้น้ำมัน)',
+      desc: 'หรือ "นวดแผนโบราณ" หมายถึง "การสัมผัสบำบัดโบราณ" โดยกระตุ้นเส้นพลังงานของร่างกาย',
+      durations: [
+        { min: 30, price: 35 },
+        { min: 60, price: 55 },
+        { min: 90, price: 70 },
+      ],
+    },
+    {
+      icon: '🪨',
+      title: 'นวดหินร้อน',
+      desc: 'การผสมผสานการนวดที่ผ่อนคลายกับหินบะซอลต์ร้อน ช่วยกระตุ้นการทำงานของเนื้อเยื่อ',
+      durations: [
+        { min: 90, price: 85 },
+      ],
+    },
+    {
+      icon: '🌿',
+      title: 'นวดสมุนไพร',
+      desc: 'การผสมผสานอโรมาเทอราพี สมุนไพร และการประคบร้อน สร้างความผ่อนคลายอย่างลึกซึ้ง',
+      durations: [
+        { min: 90, price: 80, note: '+ สมุนไพร' },
+      ],
+    },
+  ],
+}
 
 export default function ServicesPage() {
+  const { lang, t } = useLang()
+  const services = servicesData[lang]
+
   return (
     <>
       <Navbar />
 
       {/* Page header */}
       <section className="bg-primary/10 py-16 text-center">
-        <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">Our Services</p>
-        <h1 className="font-serif text-4xl md:text-5xl text-primary">Massage Treatments</h1>
+        <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">{t('services_page_tag')}</p>
+        <h1 className="font-serif text-4xl md:text-5xl text-primary">{t('services_page_title')}</h1>
       </section>
 
       {/* Services grid */}
@@ -85,7 +178,7 @@ export default function ServicesPage() {
                     key={d.min}
                     className="bg-secondary/20 text-primary text-xs font-medium px-3 py-1 rounded-full"
                   >
-                    {d.min} min — €{d.price}
+                    {d.min} {t('min')} — €{d.price}{'note' in d && d.note ? ` ${d.note}` : ''}
                   </span>
                 ))}
               </div>

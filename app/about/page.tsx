@@ -1,36 +1,45 @@
+'use client'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import { useLang } from '../../components/LangContext'
 
 export default function AboutPage() {
+  const { t } = useLang()
+
   return (
     <>
       <Navbar />
 
       <section className="bg-primary/10 py-16 text-center">
-        <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">About Us</p>
-        <h1 className="font-serif text-4xl md:text-5xl text-primary">Our Story</h1>
+        <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">{t('about_tag')}</p>
+        <h1 className="font-serif text-4xl md:text-5xl text-primary">{t('about_title')}</h1>
       </section>
 
       <section className="max-w-4xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
-        <div className="rounded-2xl overflow-hidden bg-secondary/20 aspect-square flex items-center justify-center text-secondary/50">
-          Team Photo Placeholder
+        <div className="rounded-2xl overflow-hidden bg-secondary/20 aspect-square flex items-center justify-center">
+          <span className="text-7xl">🌿💆🌸</span>
         </div>
         <div>
-          <h2 className="font-serif text-3xl text-primary mb-4">Authentic Thai Healing</h2>
-          <p className="text-dark/70 leading-relaxed mb-4">
-            We are a family-run Thai massage studio located in Bremerhaven, Germany.
-            Our certified therapists trained in Thailand bring you time-tested healing techniques
-            that have been practiced for over 2,500 years.
-          </p>
-          <p className="text-dark/70 leading-relaxed mb-4">
-            We believe that every body deserves to be treated with care, skill, and respect.
-            Whether you need relief from stress, muscle pain, or simply want to treat yourself —
-            we are here for you.
-          </p>
-          <p className="text-dark/70 leading-relaxed">
-            Our studio is a peaceful, welcoming space designed to help you fully relax
-            from the moment you walk in.
-          </p>
+          <h2 className="font-serif text-3xl text-primary mb-4">{t('about_h2')}</h2>
+          <p className="text-dark/70 leading-relaxed mb-4">{t('about_p1')}</p>
+          <p className="text-dark/70 leading-relaxed mb-4">{t('about_p2')}</p>
+          <p className="text-dark/70 leading-relaxed mb-6">{t('about_p3')}</p>
+
+          {/* Contact info */}
+          <div className="bg-primary/5 rounded-xl p-5 space-y-2 text-sm">
+            <p className="flex gap-2"><span>📍</span> Sellstedter Str. 5, 27612 Loxstedt – Donnern</p>
+            <p className="flex gap-2"><span>📞</span> 0 15156049351 / 0 15168515530</p>
+            <p className="flex gap-2"><span>🕐</span> {t('mon_fri')}</p>
+            <p className="flex gap-2"><span></span> {t('sat')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Gift Voucher section */}
+      <section className="bg-secondary/10 py-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl text-primary mb-4">🎁 {t('gift_title')}</h2>
+          <p className="text-dark/60 max-w-xl mx-auto">{t('gift_desc')}</p>
         </div>
       </section>
 

@@ -6,7 +6,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <aside className="w-56 bg-dark text-white flex flex-col min-h-screen">
         <div className="px-6 py-5 border-b border-white/10">
-          <p className="font-serif text-xl text-secondary">Thai Massage</p>
+          <p className="font-serif text-xl text-secondary">Nathanya Waree</p>
           <p className="text-xs text-white/40 mt-1">Admin Panel</p>
         </div>
         <nav className="flex-1 px-4 py-6 space-y-1 text-sm">
@@ -14,10 +14,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             📊 Dashboard
           </Link>
           <Link href="/admin/services" className="flex items-center gap-2 px-3 py-2 rounded hover:bg-white/10 transition">
-            💆 Services
-          </Link>
-          <Link href="/admin/prices" className="flex items-center gap-2 px-3 py-2 rounded hover:bg-white/10 transition">
-            💶 Price List
+            💆 Services & Prices
           </Link>
           <Link href="/admin/content" className="flex items-center gap-2 px-3 py-2 rounded hover:bg-white/10 transition">
             📝 Page Content
@@ -27,9 +24,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
         </nav>
         <div className="px-4 py-4 border-t border-white/10">
-          <Link href="/admin/logout" className="text-xs text-white/40 hover:text-white transition">
+          <a href="/api/admin/logout" className="text-xs text-white/40 hover:text-white transition">
             ← Logout
-          </Link>
+          </a>
         </div>
       </aside>
 
