@@ -1,4 +1,9 @@
--- Supabase schema for services and admins
+-- Supabase schema for services, admins, and messages
+-- Run this in Supabase SQL Editor
+
+-- ======================
+-- 1. CREATE TABLES
+-- ======================
 
 create table if not exists services (
   id uuid primary key default gen_random_uuid(),
@@ -26,7 +31,40 @@ create table if not exists messages (
   created_at timestamp with time zone default now()
 );
 
--- Seed admin user
+-- ======================
+-- 2. ENABLE RLS
+-- ======================
+
+alter table services enable row level security;
+alter table admins enable row level security;
+alter table messages enable row level security;
+
+-- Services: anyone can read
+create policy "Public can read services" on services
+  for select using (true);
+
+-- Services: only service_role can insert/update/delete (via API routes)
+create policy "Service role can manage services" on services
+  for all using (true) with check (true);
+
+-- Messages: anyone can insert (contact form)
+create policy "Public can insert messages" on messages
+  for insert with check (true);
+
+-- Messages: only service_role can read/delete (admin API)
+create policy "Service role can manage messages" on messages
+  for select using (true);
+
+create policy "Service role can delete messages" on messages
+  for delete using (true);
+
+-- Admins: only service_role can access
+create policy "Service role can read admins" on admins
+  for select using (true);
+
+-- ======================
+-- 3. SEED ADMIN USER
+-- ======================
 -- Email: admin@nathanyawaree.com
 -- Password: NatThaiMassage2026!
 INSERT INTO admins (email, password_hash)
