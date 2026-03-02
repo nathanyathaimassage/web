@@ -2,8 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [],
-    formats: ['image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.supabase.co',
+      },
+    ],
   },
 }
 
