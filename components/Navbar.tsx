@@ -1,15 +1,20 @@
+'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/prices', label: 'Prices' },
-  { href: '/about', label: 'About Us' },
-  { href: '/contact', label: 'Contact' },
-]
+import { useLang } from './LangContext'
+import LangSwitcher from './LangSwitcher'
 
 export default function Navbar() {
+  const { t } = useLang()
+
+  const navLinks = [
+    { href: '/', label: t('nav_home') },
+    { href: '/services', label: t('nav_services') },
+    { href: '/prices', label: t('nav_prices') },
+    { href: '/about', label: t('nav_about') },
+    { href: '/contact', label: t('nav_contact') },
+  ]
+
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-24">
@@ -38,16 +43,22 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA */}
-        <a
-          href="tel:+49421XXXXXX"
-          className="hidden md:inline-flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition"
-        >
-          📞 Book Now
-        </a>
+        {/* Right side: Lang switcher + CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <LangSwitcher />
+          <a
+            href="tel:+49421XXXXXX"
+            className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition"
+          >
+            {t('nav_book')}
+          </a>
+        </div>
 
-        {/* Mobile menu button */}
-        <button className="md:hidden text-primary text-2xl">☰</button>
+        {/* Mobile: Lang + menu */}
+        <div className="md:hidden flex items-center gap-2">
+          <LangSwitcher />
+          <button className="text-primary text-2xl">☰</button>
+        </div>
       </div>
     </header>
   )

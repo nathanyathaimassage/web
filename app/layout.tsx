@@ -1,14 +1,17 @@
 import './globals.css'
+import { LangProvider } from '../components/LangContext'
 
 export const metadata = {
-  title: 'Thai Massage',
-  description: 'Professionelle Thaimassage — ร้านนวดไทย',
+  title: 'Nathanya Waree Thai Massage',
+  description: 'Professionelle Thaimassage in Bremerhaven — นวดแผนไทยดั้งเดิม',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="th">
-      <body className="bg-light text-dark font-sans antialiased">{children}</body>
+    <html lang="de">
+      <body className="bg-light text-dark font-sans antialiased">
+        <LangProvider>{children}</LangProvider>
+      </body>
     </html>
   )
 }
