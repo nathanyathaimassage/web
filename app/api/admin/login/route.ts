@@ -1,17 +1,12 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { supabaseAdmin } from '../../../../lib/supabaseAdmin'
 import bcrypt from 'bcryptjs'
 import { cookies } from 'next/headers'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
 
 export async function POST(request: Request) {
   const { email, password } = await request.json()
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('admins')
     .select('id, email, password_hash')
     .eq('email', email)

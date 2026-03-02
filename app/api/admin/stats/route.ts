@@ -1,17 +1,12 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+import { supabaseAdmin } from '../../../../lib/supabaseAdmin'
 
 export async function GET() {
-  const { count: services } = await supabase
+  const { count: services } = await supabaseAdmin
     .from('services')
     .select('*', { count: 'exact', head: true })
 
-  const { count: messages } = await supabase
+  const { count: messages } = await supabaseAdmin
     .from('messages')
     .select('*', { count: 'exact', head: true })
 
