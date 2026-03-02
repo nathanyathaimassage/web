@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+// Force Node.js runtime (not Edge) to avoid Netlify edge function crashes
+export const runtime = 'nodejs'
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
