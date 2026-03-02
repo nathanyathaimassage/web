@@ -4,30 +4,44 @@ import bcrypt from 'bcryptjs'
 import { cookies } from 'next/headers'
 
 export async function POST(request: Request) {
-  const { email, password } = await request.json()
+  try {
+    const body = await request.json()
+    const email = (body.email || '').toLowerCase().trim()
+    const password = (body.password || '').trim()
 
-  const { data, error } = await supabaseAdmin
-    .from('admins')
-    .select('id, email, password_hash')
-    .eq('email', email)
-    .single()
+    if (!email || !password) {
+      return NextResponse.json({ error: 'Email and password required' }, { status: 400 })
+    }
 
-  if (error || !data) {
-    return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
+    const { data, error } = await supabaseAdmin
+      .from('admins')
+      .select('id, email, password_hash')
+      .eq('email', email)
+      .single()
+
+    if (error || !data) {
+      console.error('Admin lookup error:', error?.message)
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
+    }
+
+    const valid = await bcrypt.compare(password, data.password_hash)
+    if (!valid) {
+      console.error('Password mismatch for:', email)
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
+    }
+
+    const cookieStore = await cookies()
+    cookieStore.set('admin_id', data.id, {
+      httpOnly: true,
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7,
+      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
+    })
+
+    return NextResponse.json({ ok: true })
+  } catch (err) {
+    console.error('Login error:', err)
+    return NextResponse.json({ error: 'Server error' }, { status: 500 })
   }
-
-  const valid = await bcrypt.compare(password, data.password_hash)
-  if (!valid) {
-    return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
-  }
-
-  const cookieStore = await cookies()
-  cookieStore.set('admin_id', data.id, {
-    httpOnly: true,
-    path: '/',
-    maxAge: 60 * 60 * 24,
-    sameSite: 'lax',
-  })
-
-  return NextResponse.json({ ok: true })
 }
