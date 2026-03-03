@@ -23,7 +23,7 @@ export default function AdminLoginPage() {
     if (!res.ok) {
       setError(json.error || 'Login failed')
     } else {
-      router.push('/admin/dashboard')
+      router.push('/admin/home')
     }
   }
 

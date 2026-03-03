@@ -1,8 +1,9 @@
+'use client'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+
 export default function AdminIndex() {
-  return (
-    <main>
-      <h1>Admin Area</h1>
-      <p>Sign in to manage services and prices.</p>
-    </main>
-  )
+  const router = useRouter()
+  useEffect(() => { router.replace('/admin/home') }, [router])
+  return <div className="text-dark/50 text-sm animate-pulse p-8">Redirecting…</div>
 }

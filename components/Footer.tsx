@@ -1,9 +1,19 @@
 'use client'
 import Image from 'next/image'
 import { useLang } from './LangContext'
+import { useSiteContent } from '../lib/useSiteContent'
 
 export default function Footer() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
+  const { content } = useSiteContent()
+
+  function ct(key: string): string {
+    if (content && content[key]) {
+      const val = content[key][lang]
+      if (val) return val
+    }
+    return t(key as Parameters<typeof t>[0])
+  }
 
   return (
     <footer className="bg-dark text-white/70 py-10 mt-16">
@@ -18,15 +28,14 @@ export default function Footer() {
               <p className="text-secondary text-xs tracking-widest uppercase">Thai Massage</p>
             </div>
           </div>
-          <p>📍 Sellstedter Str. 5, 27612 Loxstedt – Donnern</p>
-          <p className="mt-1">📞 0 15156049351</p>
-          <p>📞 0 15168515530</p>
+          <p>📍 {ct('address')}</p>
+          <p className="mt-1">📞 {ct('phone1')}</p>
+          <p>📞 {ct('phone2')}</p>
         </div>
         <div>
           <p className="font-semibold text-white mb-2">{t('footer_hours')}</p>
-          <p>{t('mon_fri')}</p>
-          <p>{t('sat')}</p>
-          <p>{t('sun')}</p>
+          <p>{ct('opening_hours')}</p>
+          <p>{ct('opening_hours_note')}</p>
         </div>
         <div>
           <p className="font-semibold text-white mb-2">{t('footer_links')}</p>

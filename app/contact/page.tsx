@@ -2,12 +2,22 @@
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import { useLang } from '../../components/LangContext'
+import { useSiteContent } from '../../lib/useSiteContent'
 import { useState, FormEvent } from 'react'
 
 export default function ContactPage() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
+  const { content } = useSiteContent()
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
+
+  function ct(key: string): string {
+    if (content && content[key]) {
+      const val = content[key][lang]
+      if (val) return val
+    }
+    return t(key as Parameters<typeof t>[0])
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -19,13 +29,15 @@ export default function ContactPage() {
       body: JSON.stringify({
         name: form.get('name'),
         contact: form.get('contact'),
-        service: form.get('service'),
         message: form.get('message'),
       }),
     })
     setSending(false)
     setSent(true)
   }
+
+  const phone1 = ct('phone1')
+  const phone2 = ct('phone2')
 
   return (
     <>
@@ -43,13 +55,13 @@ export default function ContactPage() {
           <ul className="space-y-4 text-dark/70 text-sm">
             <li className="flex gap-3">
               <span className="text-xl">📍</span>
-              <span>Sellstedter Str. 5<br />27612 Loxstedt – Donnern</span>
+              <span>{ct('address')}</span>
             </li>
             <li className="flex gap-3">
               <span className="text-xl">📞</span>
               <div>
-                <a href="tel:015156049351" className="hover:text-primary transition">0 15156049351</a><br />
-                <a href="tel:015168515530" className="hover:text-primary transition">0 15168515530</a>
+                <a href={`tel:${phone1.replace(/\s/g, '')}`} className="hover:text-primary transition">{phone1}</a><br />
+                <a href={`tel:${phone2.replace(/\s/g, '')}`} className="hover:text-primary transition">{phone2}</a>
               </div>
             </li>
           </ul>
@@ -58,18 +70,18 @@ export default function ContactPage() {
           <table className="w-full text-sm text-dark/70">
             <tbody>
               <tr className="border-b border-secondary/20">
-                <td className="py-2">{t('mon_fri')}</td>
+                <td className="py-2">{ct('opening_hours')}</td>
               </tr>
               <tr className="border-b border-secondary/20">
-                <td className="py-2">{t('sat')}</td>
+                <td className="py-2">{ct('opening_hours_note')}</td>
               </tr>
             </tbody>
           </table>
 
           {/* Gift voucher hint */}
           <div className="mt-8 bg-secondary/10 rounded-xl p-4">
-            <p className="font-serif text-lg text-primary mb-1">🎁 {t('gift_title')}</p>
-            <p className="text-dark/60 text-sm">{t('gift_desc')}</p>
+            <p className="font-serif text-lg text-primary mb-1">🎁 {ct('gift_title')}</p>
+            <p className="text-dark/60 text-sm">{ct('gift_desc')}</p>
           </div>
         </div>
 

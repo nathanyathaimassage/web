@@ -2,9 +2,19 @@
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import { useLang } from '../../components/LangContext'
+import { useSiteContent } from '../../lib/useSiteContent'
 
 export default function AboutPage() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
+  const { content } = useSiteContent()
+
+  function ct(key: string): string {
+    if (content && content[key]) {
+      const val = content[key][lang]
+      if (val) return val
+    }
+    return t(key as Parameters<typeof t>[0])
+  }
 
   return (
     <>
@@ -17,29 +27,25 @@ export default function AboutPage() {
 
       <section className="max-w-4xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
         <div className="rounded-2xl overflow-hidden bg-secondary/20 aspect-square flex items-center justify-center">
-          <span className="text-7xl">🌿💆🌸</span>
+          {content?.about_image?.[lang] ? (
+            <img src={content.about_image[lang]} alt="" className="w-full h-full object-cover" />
+          ) : (
+            <span className="text-7xl">🌿💆🌸</span>
+          )}
         </div>
         <div>
-          <h2 className="font-serif text-3xl text-primary mb-4">{t('about_h2')}</h2>
-          <p className="text-dark/70 leading-relaxed mb-4">{t('about_p1')}</p>
-          <p className="text-dark/70 leading-relaxed mb-4">{t('about_p2')}</p>
-          <p className="text-dark/70 leading-relaxed mb-6">{t('about_p3')}</p>
+          <h2 className="font-serif text-3xl text-primary mb-4">{ct('about_h2')}</h2>
+          <p className="text-dark/70 leading-relaxed mb-4">{ct('about_p1')}</p>
+          <p className="text-dark/70 leading-relaxed mb-4">{ct('about_p2')}</p>
+          <p className="text-dark/70 leading-relaxed mb-6">{ct('about_p3')}</p>
 
           {/* Contact info */}
           <div className="bg-primary/5 rounded-xl p-5 space-y-2 text-sm">
-            <p className="flex gap-2"><span>📍</span> Sellstedter Str. 5, 27612 Loxstedt – Donnern</p>
-            <p className="flex gap-2"><span>📞</span> 0 15156049351 / 0 15168515530</p>
-            <p className="flex gap-2"><span>🕐</span> {t('mon_fri')}</p>
-            <p className="flex gap-2"><span></span> {t('sat')}</p>
+            <p className="flex gap-2"><span>📍</span> {ct('address')}</p>
+            <p className="flex gap-2"><span>📞</span> {ct('phone1')} / {ct('phone2')}</p>
+            <p className="flex gap-2"><span>🕐</span> {ct('opening_hours')}</p>
+            <p className="flex gap-2"><span></span> {ct('opening_hours_note')}</p>
           </div>
-        </div>
-      </section>
-
-      {/* Gift Voucher section */}
-      <section className="bg-secondary/10 py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="font-serif text-3xl text-primary mb-4">🎁 {t('gift_title')}</h2>
-          <p className="text-dark/60 max-w-xl mx-auto">{t('gift_desc')}</p>
         </div>
       </section>
 

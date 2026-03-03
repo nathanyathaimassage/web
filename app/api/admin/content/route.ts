@@ -9,66 +9,115 @@ async function isAuthed() {
   return !!cookieStore.get('admin_id')
 }
 
+// GET: return all site_content rows as a map
 export async function GET() {
   if (!(await isAuthed())) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const { data, error } = await supabaseAdmin
-    .from('site_content')
-    .select('*')
+  try {
+    const { data, error } = await supabaseAdmin
+      .from('site_content')
+      .select('*')
 
-  if (error) {
-    // Table might not exist yet — return empty so page doesn't crash
-    console.error('site_content fetch error:', error.message)
-    return NextResponse.json({})
-  }
-
-  // Support both column naming conventions
-  const content: Record<string, { de: string; th: string; en: string }> = {}
-  for (const row of data || []) {
-    content[row.key] = {
-      de: row.de ?? row.value_de ?? '',
-      th: row.th ?? row.value_th ?? '',
-      en: row.en ?? row.value_en ?? '',
+    if (error) {
+      console.error('site_content fetch error:', error.message)
+      return NextResponse.json({ error: error.message }, { status: 500 })
     }
-  }
 
-  return NextResponse.json(content)
+    const content: Record<string, { de: string; th: string; en: string }> = {}
+    for (const row of data || []) {
+      content[row.key] = {
+        de: row.de ?? '',
+        th: row.th ?? '',
+        en: row.en ?? '',
+      }
+    }
+
+    return NextResponse.json(content)
+  } catch (err: unknown) {
+    console.error('Content GET error:', err)
+    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+  }
 }
 
+// POST: upsert a single key or bulk upsert multiple keys
 export async function POST(request: Request) {
   if (!(await isAuthed())) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const body = await request.json()
-  const { key, de, th, en } = body
+  try {
+    const body = await request.json()
 
-  if (!key) {
-    return NextResponse.json({ error: 'Missing key' }, { status: 400 })
-  }
+    // Support bulk upsert: { items: [{ key, de, th, en }, ...] }
+    if (body.items && Array.isArray(body.items)) {
+      const rows = body.items.map((item: { key: string; de?: string; th?: string; en?: string }) => ({
+        key: item.key,
+        de: item.de || '',
+        th: item.th || '',
+        en: item.en || '',
+      }))
 
-  // Try both column naming styles
-  const { error } = await supabaseAdmin
-    .from('site_content')
-    .upsert(
-      { key, de: de || '', th: th || '', en: en || '' },
-      { onConflict: 'key' }
-    )
+      const { error } = await supabaseAdmin
+        .from('site_content')
+        .upsert(rows, { onConflict: 'key' })
 
-  if (error) {
-    // Fallback to old column names
-    const { error: error2 } = await supabaseAdmin
+      if (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 })
+      }
+      return NextResponse.json({ ok: true })
+    }
+
+    // Single upsert: { key, de, th, en }
+    const { key, de, th, en } = body
+
+    if (!key) {
+      return NextResponse.json({ error: 'Missing key' }, { status: 400 })
+    }
+
+    const { error } = await supabaseAdmin
       .from('site_content')
       .upsert(
-        { key, value_de: de || '', value_th: th || '', value_en: en || '' },
+        { key, de: de || '', th: th || '', en: en || '' },
         { onConflict: 'key' }
       )
-    if (error2) {
-      return NextResponse.json({ error: error2.message }, { status: 500 })
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 })
     }
+
+    return NextResponse.json({ ok: true })
+  } catch (err: unknown) {
+    console.error('Content POST error:', err)
+    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+  }
+}
+
+// DELETE: remove a key
+export async function DELETE(request: Request) {
+  if (!(await isAuthed())) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  return NextResponse.json({ ok: true })
+  try {
+    const { key } = await request.json()
+    if (!key) {
+      return NextResponse.json({ error: 'Missing key' }, { status: 400 })
+    }
+
+    const { error } = await supabaseAdmin
+      .from('site_content')
+      .delete()
+      .eq('key', key)
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 })
+    }
+
+    return NextResponse.json({ ok: true })
+  } catch (err: unknown) {
+    console.error('Content DELETE error:', err)
+    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+  }
 }
