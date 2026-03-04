@@ -49,13 +49,13 @@ export default function Footer() {
         <div>
           <p className="font-semibold text-white mb-2">{lang === 'de' ? 'Standort' : lang === 'th' ? 'แผนที่' : 'Location'}</p>
           <a
-            href="https://maps.app.goo.gl/qaVQ8xUtzfvYax287"
+            href="https://maps.app.goo.gl/op24qRqySLxQeMZZ9"
             target="_blank"
             rel="noopener noreferrer"
             className="block rounded overflow-hidden hover:opacity-90 transition"
           >
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=8.712074419436847%2C53.49359632825553%2C8.720074419436847%2C53.49759632825553&layer=mapnik&marker=53.49559632825553%2C8.716074419436847"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=8.712074419436847%2C53.49359632825553%2C8.720074419436847%2C53.49759632825553&layer=mapnik&marker=53.4968967555498%2C8.715540324110405"
               width="100%"
               height="150"
               style={{ border: 0, pointerEvents: 'none' }}
