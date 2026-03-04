@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-dark text-white/70 py-10 mt-16">
-      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8 text-sm">
         <div>
           <div className="flex items-center gap-3 mb-3">
             <div className="bg-white rounded-full p-1">
@@ -45,6 +45,24 @@ export default function Footer() {
             <li><a href="/about" className="hover:text-white transition">{t('nav_about')}</a></li>
             <li><a href="/contact" className="hover:text-white transition">{t('nav_contact')}</a></li>
           </ul>
+        </div>
+        <div>
+          <p className="font-semibold text-white mb-2">{lang === 'de' ? 'Standort' : lang === 'th' ? 'แผนที่' : 'Location'}</p>
+          <a
+            href="https://maps.app.goo.gl/qaVQ8xUtzfvYax287"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded overflow-hidden hover:opacity-90 transition"
+          >
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=8.712074419436847%2C53.49359632825553%2C8.720074419436847%2C53.49759632825553&layer=mapnik&marker=53.49559632825553%2C8.716074419436847"
+              width="100%"
+              height="150"
+              style={{ border: 0, pointerEvents: 'none' }}
+              loading="lazy"
+              title="Nathanya Waree Thai Massage Location"
+            />
+          </a>
         </div>
       </div>
       <p className="text-center text-xs text-white/40 mt-8">
