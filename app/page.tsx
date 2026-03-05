@@ -1,6 +1,4 @@
 'use client'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import Link from 'next/link'
 import { useLang } from '../components/LangContext'
 import { useSiteContent, ServiceData } from '../lib/useSiteContent'
@@ -99,8 +97,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar />
-
       {/* Hero */}
       <section className="relative bg-primary/10 min-h-[80vh] flex items-center">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center w-full py-20">
@@ -185,8 +181,6 @@ export default function HomePage() {
           </a>
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

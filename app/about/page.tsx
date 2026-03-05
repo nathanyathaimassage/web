@@ -1,6 +1,4 @@
 'use client'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
 import { useLang } from '../../components/LangContext'
 import { useSiteContent } from '../../lib/useSiteContent'
 
@@ -18,8 +16,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <Navbar />
-
       <section className="bg-primary/10 py-16 text-center">
         <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">{t('about_tag')}</p>
         <h1 className="font-serif text-4xl md:text-5xl text-primary">{t('about_title')}</h1>
@@ -52,8 +48,6 @@ export default function AboutPage() {
           <p className="text-dark/60 max-w-xl mx-auto">{ct('gift_desc')}</p>
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

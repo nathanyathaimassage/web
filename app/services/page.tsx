@@ -1,6 +1,4 @@
 'use client'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
 import { useLang } from '../../components/LangContext'
 import { useSiteContent, ServiceData } from '../../lib/useSiteContent'
 
@@ -80,8 +78,6 @@ export default function ServicesPage() {
 
   return (
     <>
-      <Navbar />
-
       {/* Page header */}
       <section className="bg-primary/10 py-16 text-center">
         <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">{t('services_page_tag')}</p>
@@ -113,8 +109,6 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

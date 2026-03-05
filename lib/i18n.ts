@@ -161,9 +161,9 @@ export const translations = {
     footer_copy: '© {year} Nathanya Waree Thai Massage',
 
     // Gallery
-    nav_gallery: 'Atmosphäre',
+    nav_gallery: 'Galerie',
     gallery_tag: 'Unser Studio',
-    gallery_title: 'Atmosphäre in unserem Studio',
+    gallery_title: 'Galerie',
     gallery_desc: 'Erleben Sie die warme und entspannende Atmosphäre unseres Massagestudios.',
     gallery_empty: 'Noch keine Bilder vorhanden',
 
