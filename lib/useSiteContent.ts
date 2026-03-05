@@ -14,6 +14,7 @@ type DurationItem = {
 
 export type ServiceData = {
   icon: string
+  image?: string
   name_en: string
   name_de: string
   name_th: string

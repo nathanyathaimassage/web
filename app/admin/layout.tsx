@@ -13,8 +13,23 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link href="/admin/dashboard" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
             📊 Dashboard
           </Link>
+          <Link href="/admin/home" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
+            🏠 Home Page
+          </Link>
+          <Link href="/admin/service" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
+            💆 Services
+          </Link>
+          <Link href="/admin/price" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
+            💰 Prices
+          </Link>
+          <Link href="/admin/about" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
+            📖 About Page
+          </Link>
+          <Link href="/admin/gallery" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
+            📷 Gallery
+          </Link>
           <Link href="/admin/content" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
-            📝 Page Content & Services
+            📝 All Content
           </Link>
           <Link href="/admin/contact" className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-white/10 transition">
             📬 Messages

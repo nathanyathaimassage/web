@@ -23,7 +23,11 @@ export default function AboutPage() {
 
       <section className="max-w-4xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
         <div className="rounded-2xl overflow-hidden bg-secondary/20 aspect-square flex items-center justify-center">
-          <span className="text-7xl">🌿💆🌸</span>
+          {content?.about_image?.en ? (
+            <img src={content.about_image.en} alt="" className="w-full h-full object-cover" />
+          ) : (
+            <span className="text-7xl">🌿💆🌸</span>
+          )}
         </div>
         <div>
           <h2 className="font-serif text-3xl text-primary mb-4">{ct('about_h2')}</h2>

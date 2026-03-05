@@ -116,7 +116,11 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hidden md:flex rounded-3xl overflow-hidden shadow-xl bg-secondary/20 h-96 items-center justify-center">
-            <span className="text-8xl">💆</span>
+            {content?.hero_image?.en ? (
+              <img src={content.hero_image.en} alt="" className="w-full h-full object-cover" />
+            ) : (
+              <span className="text-8xl">💆</span>
+            )}
           </div>
         </div>
       </section>
@@ -128,7 +132,13 @@ export default function HomePage() {
         <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
           {allServices.map((s, i) => (
             <div key={i} className="bg-white rounded-2xl shadow-md p-5 text-center hover:shadow-xl transition">
-              <div className="text-4xl mb-3">{s.icon}</div>
+              {s.image ? (
+                <div className="w-full h-28 rounded-lg overflow-hidden mb-3">
+                  <img src={s.image} alt="" className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className="text-4xl mb-3">{s.icon}</div>
+              )}
               <h3 className="font-serif text-lg text-primary mb-2">{getServiceName(s, lang)}</h3>
               <p className="text-dark/60 text-xs leading-relaxed">{getServiceDesc(s, lang)}</p>
             </div>
