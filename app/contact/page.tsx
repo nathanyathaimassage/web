@@ -79,6 +79,29 @@ export default function ContactPage() {
             <p className="font-serif text-lg text-primary mb-1">🎁 {ct('gift_title')}</p>
             <p className="text-dark/60 text-sm">{ct('gift_desc')}</p>
           </div>
+
+          {/* Google Maps */}
+          <div className="mt-8 rounded-xl overflow-hidden shadow-md">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600!2d8.715636683715688!3d53.4968882347708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6a7c8f1e2d5a1%3A0x0!2zNTPCsDI5JzQ4LjgiTiA4wrA0Mic1Ni4zIkU!5e0!3m2!1sde!2sde!4v1709654400000!5m2!1sde!2sde"
+              width="100%"
+              height="250"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Nathanya Waree Thai Massage Location"
+              className="w-full"
+            />
+          </div>
+          <a
+            href="https://maps.app.goo.gl/5yi932V1d48v2NRSA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-sm text-primary hover:underline"
+          >
+            🗺️ Open in Google Maps
+          </a>
         </div>
 
         {/* Contact form */}
