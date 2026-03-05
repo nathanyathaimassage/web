@@ -54,7 +54,7 @@ export default function AdminDashboard() {
             <tbody>
               <tr><td className="py-1">Admin</td><td className="text-right">admin@nathanyawaree.com</td></tr>
               <tr><td className="py-1">DB</td><td className="text-right">Supabase</td></tr>
-              <tr><td className="py-1">Hosting</td><td className="text-right">Netlify</td></tr>
+              <tr><td className="py-1">Hosting</td><td className="text-right">Vercel</td></tr>
             </tbody>
           </table>
         </div>
