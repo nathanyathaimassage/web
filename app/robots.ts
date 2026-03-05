@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/admin/',
     },
-    sitemap: 'https://web-zeta-amber-77.vercel.app/sitemap.xml',
+    sitemap: 'https://nathanyawaree.vercel.app/sitemap.xml',
   }
 }
