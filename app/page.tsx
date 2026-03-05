@@ -1,4 +1,6 @@
 'use client'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import Link from 'next/link'
 import { useLang } from '../components/LangContext'
 import { useSiteContent, ServiceData } from '../lib/useSiteContent'
@@ -97,6 +99,8 @@ export default function HomePage() {
 
   return (
     <>
+      <Navbar />
+
       {/* Hero */}
       <section className="relative bg-primary/10 min-h-[80vh] flex items-center">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center w-full py-20">
@@ -116,11 +120,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hidden md:flex rounded-3xl overflow-hidden shadow-xl bg-secondary/20 h-96 items-center justify-center">
-            {content?.hero_image?.[lang] ? (
-              <img src={content.hero_image[lang]} alt="" className="w-full h-full object-cover" />
-            ) : (
-              <span className="text-8xl">💆</span>
-            )}
+            <span className="text-8xl">💆</span>
           </div>
         </div>
       </section>
@@ -132,13 +132,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
           {allServices.map((s, i) => (
             <div key={i} className="bg-white rounded-2xl shadow-md p-5 text-center hover:shadow-xl transition">
-              {s.image ? (
-                <div className="w-full h-32 rounded-lg overflow-hidden mb-3">
-                  <img src={s.image} alt="" className="w-full h-full object-cover" />
-                </div>
-              ) : (
-                <div className="text-4xl mb-3">{s.icon}</div>
-              )}
+              <div className="text-4xl mb-3">{s.icon}</div>
               <h3 className="font-serif text-lg text-primary mb-2">{getServiceName(s, lang)}</h3>
               <p className="text-dark/60 text-xs leading-relaxed">{getServiceDesc(s, lang)}</p>
             </div>
@@ -167,6 +161,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Gift Voucher */}
+      <section className="py-16 bg-secondary/10">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl text-primary mb-4">🎁 {ct('gift_title')}</h2>
+          <p className="text-dark/60 mb-6 max-w-xl mx-auto">{ct('gift_desc')}</p>
+          <Link href="/contact" className="border border-primary text-primary px-8 py-3 rounded-full font-medium hover:bg-primary/5 transition">
+            {t('hero_contact')}
+          </Link>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 text-center max-w-2xl mx-auto px-4">
         <h2 className="font-serif text-4xl text-primary mb-4">{ct('cta_title')}</h2>
@@ -180,6 +185,8 @@ export default function HomePage() {
           </a>
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }

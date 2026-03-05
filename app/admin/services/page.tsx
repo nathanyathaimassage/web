@@ -6,8 +6,8 @@ export default function AdminServicesPage() {
   const router = useRouter()
 
   useEffect(() => {
-    // Redirect to new service admin page
-    router.replace('/admin/service')
+    // Redirect to unified content page with services tab
+    router.replace('/admin/content')
   }, [router])
 
   return (

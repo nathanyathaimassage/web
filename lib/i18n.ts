@@ -53,13 +53,6 @@ export const translations = {
     gift_title: 'บัตรกำนัล',
     gift_desc: 'กำลังมองหาของขวัญพิเศษ? สอบถามบัตรกำนัลนวดไทยของเราได้เลย — มอบความผ่อนคลายให้คนที่คุณรัก',
 
-    // Gallery page
-    nav_gallery: 'บรรยากาศร้าน',
-    gallery_tag: 'บรรยากาศภายในร้าน',
-    gallery_title: 'บรรยากาศร้านของเรา',
-    gallery_desc: 'สัมผัสบรรยากาศอบอุ่นและผ่อนคลายภายในร้าน Nathanya Waree Thai Massage',
-    gallery_empty: 'ยังไม่มีรูปภาพ กรุณากลับมาดูอีกครั้ง',
-
     // Contact page
     contact_tag: 'ติดต่อ',
     contact_title: 'ติดต่อเรา',
@@ -77,6 +70,13 @@ export const translations = {
     footer_hours: 'เวลาทำการ',
     footer_links: 'ลิงก์',
     footer_copy: '© {year} Nathanya Waree Thai Massage',
+
+    // Gallery
+    nav_gallery: 'บรรยากาศร้าน',
+    gallery_tag: 'บรรยากาศภายในร้าน',
+    gallery_title: 'บรรยากาศจริงในร้านของเรา',
+    gallery_desc: 'สัมผัสบรรยากาศอันอบอุ่นและผ่อนคลายภายในร้านนวดของเรา',
+    gallery_empty: 'ยังไม่มีรูปภาพในขณะนี้',
 
     // Contact info
     address: 'Sellstedter Str. 5, 27612 Loxstedt – Donnern',
@@ -142,13 +142,6 @@ export const translations = {
     gift_title: 'Geschenkgutscheine',
     gift_desc: 'Fehlt Ihnen noch ein Geschenk zu einem besonderen Anlass? Fragen Sie nach unseren Geschenkgutscheinen und schenken Sie Wohlbefinden und Entspannung.',
 
-    // Gallery page
-    nav_gallery: 'Atmosphäre',
-    gallery_tag: 'Einblick in unser Studio',
-    gallery_title: 'Unsere Atmosphäre',
-    gallery_desc: 'Erleben Sie die warme und entspannende Atmosphäre von Nathanya Waree Thai Massage.',
-    gallery_empty: 'Noch keine Bilder vorhanden. Bitte schauen Sie später wieder vorbei.',
-
     // Contact page
     contact_tag: 'Kontakt',
     contact_title: 'Kontaktieren Sie uns',
@@ -166,6 +159,13 @@ export const translations = {
     footer_hours: 'Öffnungszeiten',
     footer_links: 'Links',
     footer_copy: '© {year} Nathanya Waree Thai Massage',
+
+    // Gallery
+    nav_gallery: 'Atmosphäre',
+    gallery_tag: 'Unser Studio',
+    gallery_title: 'Atmosphäre in unserem Studio',
+    gallery_desc: 'Erleben Sie die warme und entspannende Atmosphäre unseres Massagestudios.',
+    gallery_empty: 'Noch keine Bilder vorhanden',
 
     // Contact info
     address: 'Sellstedter Str. 5, 27612 Loxstedt – Donnern',
@@ -231,13 +231,6 @@ export const translations = {
     gift_title: 'Gift Vouchers',
     gift_desc: 'Looking for a special gift? Ask about our gift vouchers and give the gift of wellness and relaxation with a Thai massage.',
 
-    // Gallery page
-    nav_gallery: 'Gallery',
-    gallery_tag: 'Inside Our Studio',
-    gallery_title: 'Our Atmosphere',
-    gallery_desc: 'Experience the warm and relaxing atmosphere of Nathanya Waree Thai Massage.',
-    gallery_empty: 'No photos yet. Please check back soon.',
-
     // Contact page
     contact_tag: 'Contact',
     contact_title: 'Contact Us',
@@ -255,6 +248,13 @@ export const translations = {
     footer_hours: 'Opening Hours',
     footer_links: 'Links',
     footer_copy: '© {year} Nathanya Waree Thai Massage',
+
+    // Gallery
+    nav_gallery: 'Gallery',
+    gallery_tag: 'Our Studio',
+    gallery_title: 'Studio Atmosphere',
+    gallery_desc: 'Experience the warm and relaxing atmosphere of our massage studio.',
+    gallery_empty: 'No photos available yet',
 
     // Contact info
     address: 'Sellstedter Str. 5, 27612 Loxstedt – Donnern',

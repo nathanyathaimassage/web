@@ -13,8 +13,8 @@ module.exports = {
         light: '#FDF6EE',
       },
       fontFamily: {
-        sans: ['Inter', 'Noto Sans Thai', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['var(--font-inter)', 'var(--font-noto-thai)', 'Inter', 'Noto Sans Thai', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Playfair Display', 'serif'],
       },
     },
   },

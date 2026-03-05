@@ -1,4 +1,6 @@
 'use client'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 import { useLang } from '../../components/LangContext'
 import { useSiteContent, ServiceData } from '../../lib/useSiteContent'
 
@@ -78,6 +80,8 @@ export default function ServicesPage() {
 
   return (
     <>
+      <Navbar />
+
       {/* Page header */}
       <section className="bg-primary/10 py-16 text-center">
         <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">{t('services_page_tag')}</p>
@@ -89,17 +93,11 @@ export default function ServicesPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allServices.map((s, i) => (
             <div key={i} className="card p-6 hover:shadow-xl transition">
-              {s.image ? (
-                <div className="w-full h-40 rounded-lg overflow-hidden mb-4">
-                  <img src={s.image} alt="" className="w-full h-full object-cover" />
-                </div>
-              ) : (
-                <div className="text-5xl mb-4">{s.icon}</div>
-              )}
+              <div className="text-5xl mb-4">{s.icon}</div>
               <h3 className="font-serif text-xl text-primary mb-2">{getName(s, lang)}</h3>
               <p className="text-dark/60 text-sm leading-relaxed mb-4">{getDesc(s, lang)}</p>
               <div className="flex flex-wrap gap-2">
-                {(s.durations || []).map((d, di) => {
+                {s.durations.map((d, di) => {
                   const note = getNote(d, lang)
                   return (
                     <span
@@ -115,6 +113,8 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }
