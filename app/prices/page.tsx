@@ -1,6 +1,4 @@
 'use client'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
 import { useLang } from '../../components/LangContext'
 import { useSiteContent, ServiceData } from '../../lib/useSiteContent'
 
@@ -73,8 +71,6 @@ export default function PricesPage() {
 
   return (
     <>
-      <Navbar />
-
       <section className="bg-primary/10 py-16 text-center">
         <p className="text-secondary uppercase tracking-widest text-sm font-medium mb-2">{t('prices_tag')}</p>
         <h1 className="font-serif text-4xl md:text-5xl text-primary">{t('prices_title')}</h1>
@@ -98,7 +94,7 @@ export default function PricesPage() {
             </div>
             <table className="w-full text-sm">
               <tbody>
-                {s.durations.map((d, di) => {
+                {(s.durations || []).map((d, di) => {
                   const note = getNote(d, lang)
                   return (
                     <tr key={di} className={di % 2 === 0 ? 'bg-white' : 'bg-light'}>
@@ -114,8 +110,6 @@ export default function PricesPage() {
           </div>
         ))}
       </section>
-
-      <Footer />
     </>
   )
 }

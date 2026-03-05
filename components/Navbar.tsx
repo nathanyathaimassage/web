@@ -13,6 +13,7 @@ export default function Navbar() {
     { href: '/', label: t('nav_home') },
     { href: '/services', label: t('nav_services') },
     { href: '/prices', label: t('nav_prices') },
+    { href: '/gallery', label: t('nav_gallery') },
     { href: '/about', label: t('nav_about') },
     { href: '/contact', label: t('nav_contact') },
   ]

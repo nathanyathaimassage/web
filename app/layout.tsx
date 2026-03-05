@@ -1,5 +1,6 @@
 import './globals.css'
 import { LangProvider } from '../components/LangContext'
+import ClientLayout from './ClientLayout'
 
 export const metadata = {
   title: 'Nathanya Waree Thai Massage',
@@ -13,7 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de">
       <body className="bg-light text-dark font-sans antialiased">
-        <LangProvider>{children}</LangProvider>
+        <LangProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </LangProvider>
       </body>
     </html>
   )

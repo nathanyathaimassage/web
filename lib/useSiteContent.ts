@@ -40,7 +40,18 @@ async function doFetch() {
         try {
           const parsed = JSON.parse(data['services_data'].en)
           if (Array.isArray(parsed) && parsed.length > 0) {
-            cachedServices = parsed
+            // Ensure each service has required fields with safe defaults
+            cachedServices = parsed.map((s: Record<string, unknown>): ServiceData => ({
+              icon: (s.icon as string) || '💆',
+              image: (s.image as string) || undefined,
+              name_en: (s.name_en as string) || '',
+              name_de: (s.name_de as string) || '',
+              name_th: (s.name_th as string) || '',
+              desc_en: (s.desc_en as string) || '',
+              desc_de: (s.desc_de as string) || '',
+              desc_th: (s.desc_th as string) || '',
+              durations: Array.isArray(s.durations) ? s.durations : [],
+            }))
           }
         } catch {
           // ignore parse errors

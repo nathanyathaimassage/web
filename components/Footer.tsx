@@ -42,6 +42,7 @@ export default function Footer() {
           <ul className="space-y-1">
             <li><a href="/services" className="hover:text-white transition">{t('nav_services')}</a></li>
             <li><a href="/prices" className="hover:text-white transition">{t('nav_prices')}</a></li>
+            <li><a href="/gallery" className="hover:text-white transition">{t('nav_gallery')}</a></li>
             <li><a href="/about" className="hover:text-white transition">{t('nav_about')}</a></li>
             <li><a href="/contact" className="hover:text-white transition">{t('nav_contact')}</a></li>
           </ul>
