@@ -83,7 +83,7 @@ export default function ContactPage() {
           {/* Google Maps */}
           <div className="mt-8 rounded-xl overflow-hidden shadow-md">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600!2d8.715854440740546!3d53.49565962815163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6a7c8f1e2d5a1%3A0x0!2zNTPCsDI5JzQ0LjQiTiA4wrA0Mic1Ny4xIkU!5e0!3m2!1sde!2sde!4v1709654400000!5m2!1sde!2sde"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600!2d8.715875898304853!3d53.49569792259049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6b5556752a13b%3A0x2b581d8675c8acbe!2sNathanyawaree%20Thai-Massage!5e0!3m2!1sde!2sde!4v1709654400000!5m2!1sde!2sde"
               width="100%"
               height="250"
               style={{ border: 0 }}
@@ -95,7 +95,7 @@ export default function ContactPage() {
             />
           </div>
           <a
-            href="https://maps.app.goo.gl/znUG5iH9UHtFndvDA"
+            href="https://maps.app.goo.gl/hYBJpXCCgQMLebYx9"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 inline-flex items-center gap-2 text-sm text-primary hover:underline"

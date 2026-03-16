@@ -28,7 +28,7 @@ export default function Footer() {
               <p className="text-secondary text-xs tracking-widest uppercase">Thai Massage</p>
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/5yi932V1d48v2NRSA" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+          <a href="https://maps.app.goo.gl/hYBJpXCCgQMLebYx9" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
             📍 {ct('address')}
           </a>
           <p className="mt-1">📞 {ct('phone1')}</p>
@@ -53,7 +53,7 @@ export default function Footer() {
           <p className="font-semibold text-white mb-2">📍 Google Maps</p>
           <div className="rounded-lg overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4800!2d8.715636683715688!3d53.4968882347708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6a7c8f1e2d5a1%3A0x0!2zNTPCsDI5JzQ4LjgiTiA4wrA0Mic1Ni4zIkU!5e0!3m2!1sde!2sde!4v1709654400000!5m2!1sde!2sde"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1200!2d8.715875898304853!3d53.49569792259049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6b5556752a13b%3A0x2b581d8675c8acbe!2sNathanyawaree%20Thai-Massage!5e0!3m2!1sde!2sde!4v1709654400000!5m2!1sde!2sde"
               width="100%"
               height="180"
               style={{ border: 0 }}
